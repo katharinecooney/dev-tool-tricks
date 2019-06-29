@@ -37,12 +37,27 @@ const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
     // Grouping together
     // in this example, we group together the content that has the same dog.name
     dogs.forEach(dog => {
-      console.group(`${dog.name}`)
-      console.log(`this is ${dog.name}`)
-      console.log(`${dog.name} is ${dog.age} years old!`)
-      console.groupEnd(`${dog.name}`)
+      console.group(`${dog.name}`);
+      console.log(`this is ${dog.name}`);
+      console.log(`${dog.name} is ${dog.age} years old!`);
+      console.groupEnd(`${dog.name}`);
     })
 
     // counting
+    console.count('Katy');
+    console.count('Katy');
+    console.count('Katy');
+    console.count('Axel');
+    console.count('Katy');
+    console.count('Katy');
+    console.count('Axel');
 
     // timing
+    // like the .groupEnd method, we must add a .timeEnd method with the same argument as the initializer
+    console.time('fetching data from github');
+    fetch('https://api.github.com/users/katharinecooney')
+      .then(data => data.json())
+      .then(data => {
+        console.log(data);
+        console.timeEnd('fetching data from github')
+      })
