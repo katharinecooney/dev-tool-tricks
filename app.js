@@ -29,14 +29,19 @@ const dogs = [{ name: 'Snickers', age: 2 }, { name: 'hugo', age: 8 }];
     //console.assert only runs when the first argument is incorrect!
     console.assert(1 === 2, 'you are wrong!');
 
-    // clearing
-    // console.clear();
-
     // Viewing DOM Elements
+    // console.dir gives us a dropdown of info about our DOM element
     const p = document.querySelector('p');
-    console.log(p)
+    console.dir(p);
 
     // Grouping together
+    // in this example, we group together the content that has the same dog.name
+    dogs.forEach(dog => {
+      console.group(`${dog.name}`)
+      console.log(`this is ${dog.name}`)
+      console.log(`${dog.name} is ${dog.age} years old!`)
+      console.groupEnd(`${dog.name}`)
+    })
 
     // counting
 
